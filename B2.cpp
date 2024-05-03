@@ -13,7 +13,7 @@ private:
     double giave;
 
 public:
-    Vemaybay() : giave(0) {} // Kh?i t?o giave đ? tránh giá tr? không xác đ?nh
+    Vemaybay() : giave(0) {} 
     ~Vemaybay() {}
 
     void Nhap()
@@ -27,14 +27,14 @@ public:
         cin.ignore();
     }
 
-    void Xuat() const // Hàm Xuat không thay đ?i d? li?u nên đư?c đ?t const
+    void Xuat() const 
     {
         cout << "Ten chuyen: " << tenchuyen << endl;
         cout << "Ngay bay: " << ngaybay << endl;
         cout << "Gia ve: " << giave << endl;
     }
 
-    double getGiaVe() const // Hàm getGiaVe không thay đ?i d? li?u nên đư?c đ?t const
+    double getGiaVe() const 
     {
         return giave;
     }
@@ -48,7 +48,7 @@ protected:
     int tuoi;
 
 public:
-    Nguoi() : tuoi(0) {} // Kh?i t?o tuoi đ? tránh giá tr? không xác đ?nh
+    Nguoi() : tuoi(0) {} 
     ~Nguoi() {}
 
     void Nhap()
@@ -62,7 +62,7 @@ public:
         cin.ignore();
     }
 
-    void Xuat() const // Hàm Xuat không thay đ?i d? li?u nên đư?c đ?t const
+    void Xuat() const 
     {
         cout << "Ho ten: " << hoten << endl;
         cout << "Gioi tinh: " << gioitinh << endl;
@@ -94,7 +94,7 @@ public:
         }
     }
 
-    void Xuat() const // Hàm Xuat không thay đ?i d? li?u nên đư?c đ?t const
+    void Xuat() const 
     {
         Nguoi::Xuat();
         cout << "So luong ve: " << soluong << endl;
@@ -105,7 +105,7 @@ public:
         }
     }
 
-    double tongTien() const // Hàm tongTien không thay đ?i d? li?u nên đư?c đ?t const
+    double tongTien() const 
     {
         double sum = 0;
         for (int i = 0; i < soluong; i++)
