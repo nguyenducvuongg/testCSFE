@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ private:
     double giave;
 
 public:
-    Vemaybay() {}
+    Vemaybay() : giave(0) {} // Kh?i t?o giave đ? tránh giá tr? không xác đ?nh
     ~Vemaybay() {}
 
     void Nhap()
@@ -26,19 +27,18 @@ public:
         cin.ignore();
     }
 
-    void Xuat()
+    void Xuat() const // Hàm Xuat không thay đ?i d? li?u nên đư?c đ?t const
     {
         cout << "Ten chuyen: " << tenchuyen << endl;
         cout << "Ngay bay: " << ngaybay << endl;
         cout << "Gia ve: " << giave << endl;
     }
 
-    double getGiaVe()
+    double getGiaVe() const // Hàm getGiaVe không thay đ?i d? li?u nên đư?c đ?t const
     {
         return giave;
     }
 };
-
 
 class Nguoi
 {
@@ -48,7 +48,7 @@ protected:
     int tuoi;
 
 public:
-    Nguoi() {}
+    Nguoi() : tuoi(0) {} // Kh?i t?o tuoi đ? tránh giá tr? không xác đ?nh
     ~Nguoi() {}
 
     void Nhap()
@@ -62,14 +62,13 @@ public:
         cin.ignore();
     }
 
-    void Xuat()
+    void Xuat() const // Hàm Xuat không thay đ?i d? li?u nên đư?c đ?t const
     {
         cout << "Ho ten: " << hoten << endl;
         cout << "Gioi tinh: " << gioitinh << endl;
         cout << "Tuoi: " << tuoi << endl;
     }
 };
-
 
 class Hanhkhach : public Nguoi
 {
@@ -95,7 +94,7 @@ public:
         }
     }
 
-    void Xuat()
+    void Xuat() const // Hàm Xuat không thay đ?i d? li?u nên đư?c đ?t const
     {
         Nguoi::Xuat();
         cout << "So luong ve: " << soluong << endl;
@@ -106,7 +105,7 @@ public:
         }
     }
 
-    double tongTien()
+    double tongTien() const // Hàm tongTien không thay đ?i d? li?u nên đư?c đ?t const
     {
         double sum = 0;
         for (int i = 0; i < soluong; i++)
@@ -117,11 +116,10 @@ public:
     }
 };
 
-
-// bool cmpHanhKhach(const Hanhkhach &a, const Hanhkhach &b)
-// {
-//     return a.tongTien() > b.tongTien();
-// }
+bool cmpHanhKhach(const Hanhkhach &a, const Hanhkhach &b)
+{
+    return a.tongTien() > b.tongTien();
+}
 
 int main()
 {
@@ -132,15 +130,12 @@ int main()
 
     vector<Hanhkhach> danhSach(n);
 
- 
     for (int i = 0; i < n; i++)
     {
         cout << "Nhap thong tin hanh khach thu " << i + 1 << ":" << endl;
         danhSach[i].Nhap();
     }
-
- 
-    cout << "Thong tin hanh khach va tong tien:" << endl;
+cout << "Thong tin hanh khach va tong tien:" << endl;
     for (int i = 0; i < n; i++)
     {
         cout << "Hanh khach thu " << i + 1 << ":" << endl;
@@ -148,10 +143,8 @@ int main()
         cout << "Tong tien: " << danhSach[i].tongTien() << endl;
     }
 
+    sort(danhSach.begin(), danhSach.end(), cmpHanhKhach);
 
-    // sort(danhSach.begin(), danhSach.end(), cmpHanhKhach);
-
-    
     cout << "Danh sach hanh khach da sap xep:" << endl;
     for (int i = 0; i < n; i++)
     {
@@ -162,5 +155,3 @@ int main()
 
     return 0;
 }
-
-
